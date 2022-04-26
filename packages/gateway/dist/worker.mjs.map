@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../index.js"],
+  "sourcesContent": ["// https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent\n/** @typedef {{ waitUntil(p: Promise): void }} Ctx */\n\nexport default {\n  async fetch(request, env, ctx) {\n    return new Response('Hello worker!', {\n      headers: { 'content-type': 'text/plain' },\n    })\n  },\n}\n"],
+  "mappings": ";AAGA,IAAO,kBAAQ;AAAA,QACP,MAAM,SAAS,KAAK,KAAK;AAC7B,WAAO,IAAI,SAAS,iBAAiB;AAAA,MACnC,SAAS,EAAE,gBAAgB,aAAa;AAAA,IAC1C,CAAC;AAAA,EACH;AACF;",
+  "names": []
+}

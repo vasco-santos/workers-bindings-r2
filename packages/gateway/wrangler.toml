@@ -1,0 +1,15 @@
+name = "worker-bindings-r2-gateway"
+type = "javascript"
+
+account_id = "fffa4b4363a7e5250af8357087263b3a"
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2022-04-22"
+
+[build]
+command = "npm run build"
+[build.upload]
+format = "modules"
+dir = "dist"
+main = "worker.mjs"

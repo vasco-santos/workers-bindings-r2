@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../index.js"],
+  "sourcesContent": ["// https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent\n/** @typedef {{ waitUntil(p: Promise): void }} Ctx */\n\nexport default {\n  async fetch(request, env, ctx) {\n    const response = await env.GATEWAY.fetch(new Request('https://worker-bindings-r2-api.protocol-labs.workers.dev'))\n    if (!response.ok) {\n      throw new Error('response not ok')\n    }\n\n    let r2Object\n    try {\n      r2Object = await env.R2.put('key', response.body)\n    } catch (err) {\n      console.log('err', String(err))\n      return new Response(String(err))\n    }\n\n    return new Response('ended api request with success')\n  },\n}\n"],
+  "mappings": ";AAGA,IAAO,cAAQ;AAAA,QACP,MAAM,SAAS,KAAK,KAAK;AAC7B,UAAM,WAAW,MAAM,IAAI,QAAQ,MAAM,IAAI,QAAQ,0DAA0D,CAAC;AAChH,QAAI,CAAC,SAAS,IAAI;AAChB,YAAM,IAAI,MAAM,iBAAiB;AAAA,IACnC;AAEA,QAAI;AACJ,QAAI;AACF,iBAAW,MAAM,IAAI,GAAG,IAAI,OAAO,SAAS,IAAI;AAAA,IAClD,SAAS,KAAP;AACA,cAAQ,IAAI,OAAO,OAAO,GAAG,CAAC;AAC9B,aAAO,IAAI,SAAS,OAAO,GAAG,CAAC;AAAA,IACjC;AAEA,WAAO,IAAI,SAAS,gCAAgC;AAAA,EACtD;AACF;",
+  "names": []
+}
